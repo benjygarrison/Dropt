@@ -45,11 +45,11 @@ class ViewController: UIViewController {
         case 9:
             passCodeText.text? += "0"
         case 10:
-            print("back")
+            passCodeText.text? = "TODO"
         case 11:
             passCodeText.text = ""
         default:
-            print("hubba hubba")
+            passCodeText.text = ""
             
         }
     }
