@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class ViewController: UIViewController {
     
@@ -19,7 +20,18 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         passCodeText.text = passCodeDefault
+        
     }
+    
+    
+    @IBAction func enterButtonPressed(_ sender: UIButton) {
+        if let passcode = passCodeText.text {
+            let saveSuccessful: Bool = KeychainWrapper.standard.set(passcode, forKey: "userPassword")
+            print("Save was successful: \(saveSuccessful)")
+            self.view.endEditing(true)            
+        }
+    }
+    
 
     @IBAction func buttonPressed(_ sender: UIButton) {
         
@@ -45,8 +57,6 @@ class ViewController: UIViewController {
         case 9:
             passCodeText.text? += "0"
         case 10:
-            passCodeText.text? = "TODO"
-        case 11:
             passCodeText.text = ""
         default:
             passCodeText.text = ""

@@ -48,7 +48,6 @@
 				B551935C1AA54AE3DC178963 /* Pods-PASSWORD.debug.xcconfig */,
 				C247E402F17B60FF6871A201 /* Pods-PASSWORD.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
