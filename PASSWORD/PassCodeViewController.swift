@@ -37,12 +37,41 @@ class PassCodeViewController: UIViewController {
     
     
     @IBAction func enterButtonPressed(_ sender: UIButton) {
-        if let passcode = passCodeText.text {
-            let saveSuccessful: Bool = KeychainWrapper.standard.set(passcode, forKey: "userPasscode")
-            print("Save was successful: \(saveSuccessful)")
-            self.view.endEditing(true)
+        
+        var firstInput: String  = ""
+        var firstInputExists = false
+        var secondInput: String = ""
+        var firstInputArray: [String] = []
+        var secondInputArray: [String] = []
+        
+        if (currentPassCode == nil) {
+            firstInput = String(passCodeText.text ?? "")
+            firstInputExists = true
+            firstInputArray.append(firstInput)
+            print(firstInput)
+            passCodeText.text = ""        }
+        
+        if (currentPassCode == nil && firstInputExists == true) {
+            passCodeLabel.text = "Please re-enter your passcode."
+            secondInput = String(passCodeText.text ?? "")
+            secondInputArray.append(secondInput)
+            print(secondInput)
+            passCodeText.text = ""
+            
+            if (firstInputArray == secondInputArray){
+                print("strings match!")
+            }
         }
+        
+        //TODO: (extract secondInputArray to String?) If arrays match, perform function below.
+
+        //if let passcode = passCodeText.text {
+          //  let saveSuccessful: Bool = KeychainWrapper.standard.set(passcode, forKey: "userPasscode")
+            //print("Save was successful: \(saveSuccessful)")
+            //self.view.endEditing(true)
+       // }
     }
+    
     
 
     @IBAction func buttonPressed(_ sender: UIButton) {
