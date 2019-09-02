@@ -14,10 +14,22 @@ class PassCodeViewController: UIViewController {
     @IBOutlet weak var passCodeText: UITextField!
     var passCodeDefault: String = ""
     
+    @IBOutlet weak var passCodeLabel: UILabel!
+    
+    let currentPassCode: String? = KeychainWrapper.standard.string(forKey: "userPasscode")
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+  
+
+        if (currentPassCode != nil) {
+            passCodeLabel.text = "Please enter your passcode."
+        }
+        else {
+            passCodeLabel.text = "Please enter a new passcode."
+        }
         
         passCodeText.text = passCodeDefault
         
