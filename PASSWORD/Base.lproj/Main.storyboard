@@ -175,11 +175,37 @@
                                     <constraint firstAttribute="height" constant="388" id="hWh-Em-OGq"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edt-ze-BT0">
+                                <rect key="frame" x="147" y="630" width="81" height="47"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="check">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkPassCode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cOe-On-agd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGd-S4-Gyz">
+                                <rect key="frame" x="147" y="701" width="81" height="42"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <state key="normal" title="delete">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deletePassCode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mdj-D0-oDj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.77647066119999997" green="0.86274516580000005" blue="0.92941182850000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="GGd-S4-Gyz" firstAttribute="top" secondItem="edt-ze-BT0" secondAttribute="bottom" constant="24" id="2yS-JI-AlB"/>
                             <constraint firstItem="ivX-wT-cSA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5iQ-qn-amH"/>
+                            <constraint firstItem="edt-ze-BT0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="147" id="Gpq-gf-2TQ"/>
+                            <constraint firstItem="edt-ze-BT0" firstAttribute="top" secondItem="ivX-wT-cSA" secondAttribute="bottom" constant="30" id="Q9Y-m3-o8T"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="edt-ze-BT0" secondAttribute="trailing" constant="147" id="SZL-rL-2Nl"/>
                             <constraint firstItem="ivX-wT-cSA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eeE-q5-mV0"/>
+                            <constraint firstItem="GGd-S4-Gyz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="147" id="fgA-cK-MkK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GGd-S4-Gyz" secondAttribute="trailing" constant="147" id="y9e-7b-SyI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

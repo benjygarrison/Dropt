@@ -26,9 +26,9 @@ class ViewController: UIViewController {
     
     @IBAction func enterButtonPressed(_ sender: UIButton) {
         if let passcode = passCodeText.text {
-            let saveSuccessful: Bool = KeychainWrapper.standard.set(passcode, forKey: "userPassword")
+            let saveSuccessful: Bool = KeychainWrapper.standard.set(passcode, forKey: "userPasscode")
             print("Save was successful: \(saveSuccessful)")
-            self.view.endEditing(true)            
+            self.view.endEditing(true)
         }
     }
     
@@ -63,6 +63,17 @@ class ViewController: UIViewController {
             
         }
     }
+    
+    
+    @IBAction func checkPassCode(_ sender: UIButton) {
+        let retrievedPassCode: String? = KeychainWrapper.standard.string(forKey: "userPasscode")
+        print("Retrieved pass code is: \(retrievedPassCode!)")
+    }
+    
+    
+    @IBAction func deletePassCode(_ sender: UIButton) {
+        let _: Bool = KeychainWrapper.standard.removeObject(forKey: "userPasscode")
+        print("Pass code deleted.")    }
     
 }
 
