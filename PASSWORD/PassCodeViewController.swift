@@ -9,7 +9,7 @@
 import UIKit
 import SwiftKeychainWrapper
 
-class ViewController: UIViewController {
+class PassCodeViewController: UIViewController {
     
     @IBOutlet weak var passCodeText: UITextField!
     var passCodeDefault: String = ""
