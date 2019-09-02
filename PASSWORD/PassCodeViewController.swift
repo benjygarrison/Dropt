@@ -16,12 +16,17 @@ class PassCodeViewController: UIViewController {
     
     @IBOutlet weak var passCodeLabel: UILabel!
     
+    @IBOutlet weak var enter: UIButton!
+    
     let currentPassCode: String? = KeychainWrapper.standard.string(forKey: "userPasscode")
     
-    
+    var firstInput: String?
+    var secondInput: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        enter.tag = 12
   
 
         if (currentPassCode != nil) {
@@ -38,38 +43,24 @@ class PassCodeViewController: UIViewController {
     
     @IBAction func enterButtonPressed(_ sender: UIButton) {
         
-        var firstInput: String  = ""
-        var firstInputExists = false
-        var secondInput: String = ""
-        var firstInputArray: [String] = []
-        var secondInputArray: [String] = []
-        
-        if (currentPassCode == nil) {
-            firstInput = String(passCodeText.text ?? "")
-            firstInputExists = true
-            firstInputArray.append(firstInput)
-            print(firstInput)
-            passCodeText.text = ""        }
-        
-        if (currentPassCode == nil && firstInputExists == true) {
+        if (currentPassCode == nil && enter.tag == 12) {
+            firstInput = passCodeText.text
+            enter.tag = 11
+            passCodeText.text = ""
+        } else if (currentPassCode == nil && enter.tag == 11)  {
             passCodeLabel.text = "Please re-enter your passcode."
-            secondInput = String(passCodeText.text ?? "")
-            secondInputArray.append(secondInput)
-            print(secondInput)
+            secondInput = passCodeText.text
             passCodeText.text = ""
             
-            if (firstInputArray == secondInputArray){
-                print("strings match!")
+            if (secondInput == firstInput) {
+                let passcode = secondInput!
+                  let saveSuccessful: Bool = KeychainWrapper.standard.set(passcode, forKey: "userPasscode")
+                print("Save was successful: \(saveSuccessful)")
+                self.view.endEditing(true)
+            } else {
+                print ("no bueno.")
             }
         }
-        
-        //TODO: (extract secondInputArray to String?) If arrays match, perform function below.
-
-        //if let passcode = passCodeText.text {
-          //  let saveSuccessful: Bool = KeychainWrapper.standard.set(passcode, forKey: "userPasscode")
-            //print("Save was successful: \(saveSuccessful)")
-            //self.view.endEditing(true)
-       // }
     }
     
     

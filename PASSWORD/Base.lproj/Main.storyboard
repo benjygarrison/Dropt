@@ -254,6 +254,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="enter" destination="umv-zC-wK0" id="Jl6-OS-unQ"/>
                         <outlet property="passCodeLabel" destination="C5M-5D-Pjn" id="c9u-9m-25u"/>
                         <outlet property="passCodeText" destination="swq-uS-ujY" id="4xd-qx-e2f"/>
                     </connections>
