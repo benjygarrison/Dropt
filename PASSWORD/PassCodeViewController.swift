@@ -43,6 +43,8 @@ class PassCodeViewController: UIViewController {
     
     @IBAction func enterButtonPressed(_ sender: UIButton) {
         
+        //add safeguard against nil value to ensure password
+        
         if (currentPassCode == nil && enter.tag == 12) {
             firstInput = passCodeText.text
             enter.tag = 11
@@ -57,8 +59,17 @@ class PassCodeViewController: UIViewController {
                   let saveSuccessful: Bool = KeychainWrapper.standard.set(passcode, forKey: "userPasscode")
                 print("Save was successful: \(saveSuccessful)")
                 self.view.endEditing(true)
+                passCodeLabel.text = "Password saved."
             } else {
-                print ("no bueno.")
+                let alert = UIAlertController(title: "Passcodes Do Not Match.", message: "Please re-enter passcode.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                    NSLog("The \"OK\" alert occured.")
+                }))
+                self.present(alert, animated: true, completion: nil)
+                firstInput = ""
+                secondInput = ""
+                enter.tag = 12
+                passCodeLabel.text = "Please enter a new passcode."
             }
         }
     }
