@@ -11,6 +11,8 @@ import SwiftKeychainWrapper
 
 class PassCodeViewController: UIViewController {
     
+    @IBOutlet weak var AlarmView: UIView!    
+    
     @IBOutlet weak var passCodeText: UITextField!
     var passCodeDefault: String = ""
     
@@ -42,8 +44,6 @@ class PassCodeViewController: UIViewController {
     
     
     @IBAction func enterButtonPressed(_ sender: UIButton) {
-        
-        //add constraint to ensure 4 digit passcode
         
         if (currentPassCode == nil && enter.tag == 12) {
             if(passCodeText.text?.count == 4) {
@@ -83,6 +83,23 @@ class PassCodeViewController: UIViewController {
                 passCodeLabel.text = "Please create a 4-digit passcode."
             }
         }
+        
+        //Create password entered function
+        if (currentPassCode != nil) {
+            let retrievedPassCode: String? = KeychainWrapper.standard.string(forKey: "userPasscode")
+            if (passCodeText.text == retrievedPassCode) {
+                passCodeText.text  = ""
+                AlarmView.isHidden = false
+            } else {
+                let alert = UIAlertController(title: "Incorrect Password.", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                    NSLog("The \"OK\" alert occured.")
+                }))
+                self.present(alert, animated: true, completion: nil)
+                passCodeText.text = ""
+            }
+        }
+        
     }
     
     
