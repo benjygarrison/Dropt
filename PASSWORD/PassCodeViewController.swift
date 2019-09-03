@@ -33,7 +33,7 @@ class PassCodeViewController: UIViewController {
             passCodeLabel.text = "Please enter your passcode."
         }
         else {
-            passCodeLabel.text = "Please enter a new passcode."
+            passCodeLabel.text = "Please create a 4-digit passcode."
         }
         
         passCodeText.text = passCodeDefault
@@ -43,14 +43,25 @@ class PassCodeViewController: UIViewController {
     
     @IBAction func enterButtonPressed(_ sender: UIButton) {
         
-        //add safeguard against nil value to ensure password
+        //add constraint to ensure 4 digit passcode
         
         if (currentPassCode == nil && enter.tag == 12) {
+            if(passCodeText.text?.count == 4) {
             firstInput = passCodeText.text
             enter.tag = 11
             passCodeText.text = ""
-        } else if (currentPassCode == nil && enter.tag == 11)  {
             passCodeLabel.text = "Please re-enter your passcode."
+            } else {
+                let alert = UIAlertController(title: "Passcode Must Be 4 Digits.", message: "Please re-enter passcode.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                    NSLog("The \"OK\" alert occured.")
+                }))
+                self.present(alert, animated: true, completion: nil)
+                passCodeLabel.text = "Please create a 4-digit passcode."
+                passCodeText.text = ""
+            }
+        } else if (currentPassCode == nil && enter.tag == 11)  {
+            //passCodeLabel.text = "Please re-enter your passcode."
             secondInput = passCodeText.text
             passCodeText.text = ""
             
@@ -61,7 +72,7 @@ class PassCodeViewController: UIViewController {
                 self.view.endEditing(true)
                 passCodeLabel.text = "Password saved."
             } else {
-                let alert = UIAlertController(title: "Passcodes Do Not Match.", message: "Please re-enter passcode.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Passcodes Do Not Match.", message: "", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
                     NSLog("The \"OK\" alert occured.")
                 }))
@@ -69,7 +80,7 @@ class PassCodeViewController: UIViewController {
                 firstInput = ""
                 secondInput = ""
                 enter.tag = 12
-                passCodeLabel.text = "Please enter a new passcode."
+                passCodeLabel.text = "Please create a 4-digit passcode."
             }
         }
     }
