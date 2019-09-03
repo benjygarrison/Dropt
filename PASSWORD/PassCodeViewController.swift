@@ -20,6 +20,8 @@ class PassCodeViewController: UIViewController {
     var passCodeDefault: String = ""
     @IBOutlet weak var passCodeLabel: UILabel!
     @IBOutlet weak var enter: UIButton!
+    @IBOutlet weak var checkButton: UIButton!
+    
     
     let currentPassCode: String? = KeychainWrapper.standard.string(forKey: "userPasscode")
     var firstInput: String?
@@ -27,6 +29,7 @@ class PassCodeViewController: UIViewController {
     
     var longGesture = UILongPressGestureRecognizer()
     
+    //let hvc = HomeViewController()
     
     
     
@@ -70,6 +73,7 @@ class PassCodeViewController: UIViewController {
         if (currentPassCode != nil) {
             passCodeExists()
         }
+        
     }
 
     @IBAction func buttonPressed(_ sender: UIButton) {
@@ -128,7 +132,10 @@ class PassCodeViewController: UIViewController {
         let retrievedPassCode: String? = KeychainWrapper.standard.string(forKey: "userPasscode")
         if (passCodeText.text == retrievedPassCode) {
             passCodeText.text  = ""
-            AlarmView.isHidden = false
+            if(StandardView.backgroundColor == .red){
+                checkButton.sendActions(for: .touchUpInside)            } else {
+                AlarmView.isHidden = false
+            }
         } else {
             let alert = UIAlertController(title: "Incorrect Password.", message: "", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
@@ -189,6 +196,7 @@ class PassCodeViewController: UIViewController {
             StandardView.backgroundColor = .red
             passCodeLabel.backgroundColor = .red
             passCodeText.backgroundColor = .red
+            //StandardView.tag = 101
         }
     }
     

@@ -227,6 +227,7 @@
                                 </state>
                                 <connections>
                                     <action selector="checkPassCode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cOe-On-agd"/>
+                                    <segue destination="tcw-CY-m6E" kind="show" id="cJc-LQ-V9K"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGd-S4-Gyz">
@@ -286,6 +287,7 @@
                         <outlet property="AlarmView" destination="gYy-zc-N2x" id="oq9-YZ-WXL"/>
                         <outlet property="StandardView" destination="8bC-Xf-vdC" id="6ni-vw-WnW"/>
                         <outlet property="View" destination="8bC-Xf-vdC" id="LqN-Zp-SFl"/>
+                        <outlet property="checkButton" destination="edt-ze-BT0" id="QuG-vs-6TS"/>
                         <outlet property="enter" destination="umv-zC-wK0" id="Jl6-OS-unQ"/>
                         <outlet property="passCodeLabel" destination="C5M-5D-Pjn" id="c9u-9m-25u"/>
                         <outlet property="passCodeText" destination="swq-uS-ujY" id="4xd-qx-e2f"/>
