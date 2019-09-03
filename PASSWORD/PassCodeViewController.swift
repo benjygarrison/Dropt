@@ -11,25 +11,27 @@ import SwiftKeychainWrapper
 
 class PassCodeViewController: UIViewController {
     
-    @IBOutlet weak var AlarmView: UIView!    
+    //Variables
     
+    @IBOutlet weak var AlarmView: UIView!
     @IBOutlet weak var passCodeText: UITextField!
     var passCodeDefault: String = ""
-    
     @IBOutlet weak var passCodeLabel: UILabel!
-    
     @IBOutlet weak var enter: UIButton!
     
     let currentPassCode: String? = KeychainWrapper.standard.string(forKey: "userPasscode")
-    
     var firstInput: String?
     var secondInput: String?
+    
+    
+    
+    
+    //View
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         enter.tag = 12
-  
 
         if (currentPassCode != nil) {
             passCodeLabel.text = "Please enter your passcode."
@@ -39,70 +41,27 @@ class PassCodeViewController: UIViewController {
         }
         
         passCodeText.text = passCodeDefault
-        
     }
     
+    
+
+    
+    //Actions
     
     @IBAction func enterButtonPressed(_ sender: UIButton) {
         
+        //create passcode
         if (currentPassCode == nil && enter.tag == 12) {
-            if(passCodeText.text?.count == 4) {
-            firstInput = passCodeText.text
-            enter.tag = 11
-            passCodeText.text = ""
-            passCodeLabel.text = "Please re-enter your passcode."
-            } else {
-                let alert = UIAlertController(title: "Passcode Must Be 4 Digits.", message: "Please re-enter passcode.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-                    NSLog("The \"OK\" alert occured.")
-                }))
-                self.present(alert, animated: true, completion: nil)
-                passCodeLabel.text = "Please create a 4-digit passcode."
-                passCodeText.text = ""
-            }
+            createPassCode()
         } else if (currentPassCode == nil && enter.tag == 11)  {
-            //passCodeLabel.text = "Please re-enter your passcode."
-            secondInput = passCodeText.text
-            passCodeText.text = ""
-            
-            if (secondInput == firstInput) {
-                let passcode = secondInput!
-                  let saveSuccessful: Bool = KeychainWrapper.standard.set(passcode, forKey: "userPasscode")
-                print("Save was successful: \(saveSuccessful)")
-                self.view.endEditing(true)
-                passCodeLabel.text = "Password saved."
-            } else {
-                let alert = UIAlertController(title: "Passcodes Do Not Match.", message: "", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-                    NSLog("The \"OK\" alert occured.")
-                }))
-                self.present(alert, animated: true, completion: nil)
-                firstInput = ""
-                secondInput = ""
-                enter.tag = 12
-                passCodeLabel.text = "Please create a 4-digit passcode."
-            }
+            confirmPassCode()
         }
         
-        //Create password entered function
+        //password entered function
         if (currentPassCode != nil) {
-            let retrievedPassCode: String? = KeychainWrapper.standard.string(forKey: "userPasscode")
-            if (passCodeText.text == retrievedPassCode) {
-                passCodeText.text  = ""
-                AlarmView.isHidden = false
-            } else {
-                let alert = UIAlertController(title: "Incorrect Password.", message: "", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-                    NSLog("The \"OK\" alert occured.")
-                }))
-                self.present(alert, animated: true, completion: nil)
-                passCodeText.text = ""
-            }
+            passCodeExists()
         }
-        
     }
-    
-    
 
     @IBAction func buttonPressed(_ sender: UIButton) {
         
@@ -135,16 +94,75 @@ class PassCodeViewController: UIViewController {
         }
     }
     
-    
     @IBAction func checkPassCode(_ sender: UIButton) {
         let retrievedPassCode: String? = KeychainWrapper.standard.string(forKey: "userPasscode")
         print("Retrieved pass code is: \(retrievedPassCode!)")
     }
     
-    
     @IBAction func deletePassCode(_ sender: UIButton) {
         let _: Bool = KeychainWrapper.standard.removeObject(forKey: "userPasscode")
-        print("Pass code deleted.")    }
+        print("Pass code deleted.")
+    }
+    
+    
+    
+    
+    //Functions (TODO: move to Model files?)
+    
+    func passCodeExists() {
+        let retrievedPassCode: String? = KeychainWrapper.standard.string(forKey: "userPasscode")
+        if (passCodeText.text == retrievedPassCode) {
+            passCodeText.text  = ""
+            AlarmView.isHidden = false
+        } else {
+            let alert = UIAlertController(title: "Incorrect Password.", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
+            passCodeText.text = ""
+        }
+    }
+    
+    func createPassCode() {
+        if(passCodeText.text?.count == 4) {
+            firstInput = passCodeText.text
+            enter.tag = 11
+            passCodeText.text = ""
+            passCodeLabel.text = "Please re-enter your passcode."
+        } else {
+            let alert = UIAlertController(title: "Passcode Must Be 4 Digits.", message: "Please re-enter passcode.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
+            passCodeLabel.text = "Please create a 4-digit passcode."
+            passCodeText.text = ""
+        }
+    }
+    
+    func confirmPassCode() {
+        secondInput = passCodeText.text
+        passCodeText.text = ""
+        
+        if (secondInput == firstInput) {
+            let passcode = secondInput!
+            let saveSuccessful: Bool = KeychainWrapper.standard.set(passcode, forKey: "userPasscode")
+            print("Save was successful: \(saveSuccessful)")
+            self.view.endEditing(true)
+            passCodeLabel.text = "Password saved."
+        } else {
+            let alert = UIAlertController(title: "Passcodes Do Not Match.", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
+            firstInput = ""
+            secondInput = ""
+            enter.tag = 12
+            passCodeLabel.text = "Please create a 4-digit passcode."
+        }
+    }
     
 }
 
