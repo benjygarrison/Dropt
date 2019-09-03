@@ -13,6 +13,8 @@ class PassCodeViewController: UIViewController {
     
     //Variables
     
+    
+    @IBOutlet var StandardView: UIView!
     @IBOutlet weak var AlarmView: UIView!
     @IBOutlet weak var passCodeText: UITextField!
     var passCodeDefault: String = ""
@@ -22,6 +24,8 @@ class PassCodeViewController: UIViewController {
     let currentPassCode: String? = KeychainWrapper.standard.string(forKey: "userPasscode")
     var firstInput: String?
     var secondInput: String?
+    
+    var longGesture = UILongPressGestureRecognizer()
     
     
     
@@ -41,7 +45,12 @@ class PassCodeViewController: UIViewController {
         }
         
         passCodeText.text = passCodeDefault
-    }
+        
+        longGesture = UILongPressGestureRecognizer(target: self, action: #selector(PassCodeViewController.longPress(_:)))
+        longGesture.minimumPressDuration = 1
+        AlarmView.addGestureRecognizer(longGesture)
+        
+        }
     
     
 
@@ -93,6 +102,12 @@ class PassCodeViewController: UIViewController {
             
         }
     }
+    
+    
+    
+    
+    
+    //Temp Actions
     
     @IBAction func checkPassCode(_ sender: UIButton) {
         let retrievedPassCode: String? = KeychainWrapper.standard.string(forKey: "userPasscode")
@@ -161,6 +176,17 @@ class PassCodeViewController: UIViewController {
             secondInput = ""
             enter.tag = 12
             passCodeLabel.text = "Please create a 4-digit passcode."
+        }
+    }
+    
+    @objc func longPress(_ sender: UILongPressGestureRecognizer) {
+        
+        if sender.state == UIGestureRecognizer.State.began {
+            print("holding")
+        }
+        if sender.state == UIGestureRecognizer.State.ended {
+            AlarmView.isHidden = true
+            StandardView.backgroundColor = .red
         }
     }
     

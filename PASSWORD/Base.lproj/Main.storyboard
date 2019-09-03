@@ -245,6 +245,9 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="grs-pH-L3B">
                                         <rect key="frame" x="67.666666666666686" y="276" width="240" height="260"/>
                                         <color key="backgroundColor" red="0.5823529959" green="0.89705884459999996" blue="0.59803926939999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="aSS-Xq-D0x"/>
                                             <constraint firstAttribute="height" constant="260" id="xAI-2B-3SL"/>
@@ -256,9 +259,6 @@
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.58235299587249756" green="0.89705884456634521" blue="0.59803926944732666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" notEnabled="YES"/>
-                                </accessibility>
                                 <constraints>
                                     <constraint firstItem="grs-pH-L3B" firstAttribute="centerY" secondItem="gYy-zc-N2x" secondAttribute="centerY" id="L4z-fZ-Pki"/>
                                     <constraint firstItem="grs-pH-L3B" firstAttribute="centerX" secondItem="gYy-zc-N2x" secondAttribute="centerX" id="nMb-Iu-iMT"/>
@@ -284,6 +284,8 @@
                     </view>
                     <connections>
                         <outlet property="AlarmView" destination="gYy-zc-N2x" id="oq9-YZ-WXL"/>
+                        <outlet property="StandardView" destination="8bC-Xf-vdC" id="6ni-vw-WnW"/>
+                        <outlet property="View" destination="8bC-Xf-vdC" id="LqN-Zp-SFl"/>
                         <outlet property="enter" destination="umv-zC-wK0" id="Jl6-OS-unQ"/>
                         <outlet property="passCodeLabel" destination="C5M-5D-Pjn" id="c9u-9m-25u"/>
                         <outlet property="passCodeText" destination="swq-uS-ujY" id="4xd-qx-e2f"/>
