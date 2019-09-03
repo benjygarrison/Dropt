@@ -187,6 +187,8 @@ class PassCodeViewController: UIViewController {
         if sender.state == UIGestureRecognizer.State.ended {
             AlarmView.isHidden = true
             StandardView.backgroundColor = .red
+            passCodeLabel.backgroundColor = .red
+            passCodeText.backgroundColor = .red
         }
     }
     
