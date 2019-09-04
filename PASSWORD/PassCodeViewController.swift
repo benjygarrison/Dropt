@@ -52,7 +52,7 @@ class PassCodeViewController: UIViewController {
         longGesture.minimumPressDuration = 1
         AlarmView.addGestureRecognizer(longGesture)
         
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(UIMenuController.update), userInfo: nil, repeats: true)        
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(UIMenuController.update), userInfo: nil, repeats: true)
     }
     
     
@@ -196,15 +196,18 @@ class PassCodeViewController: UIViewController {
             StandardView.backgroundColor = .red
             passCodeLabel.backgroundColor = .red
             passCodeText.backgroundColor = .red
-            update()
+            //update()
         }
     }
     
     @objc func update() {
+        if (StandardView.backgroundColor == .red){
         countdown = countdown - 1
         countDownLabel.text = String(countdown)
-        if (countdown == 0){
-            countDownLabel.text = "ALARM"
+            if (countdown == 0){
+                countDownLabel.text = "ALARM"
+                timer.invalidate()
+            }
         }
     }
 }
