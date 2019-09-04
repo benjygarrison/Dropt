@@ -174,8 +174,13 @@ class PassCodeViewController: UIViewController {
             print("Save was successful: \(saveSuccessful)")
             self.view.endEditing(true)
             passCodeLabel.text = "Password saved."
-            checkButton.sendActions(for: .touchUpInside)        }
-        else {
+            let alert = UIAlertController(title: "Passcode Created.", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+                self.checkButton.sendActions(for: .touchUpInside)}))
+            self.present(alert, animated: true, completion: nil)
+            
+        } else {
             let alert = UIAlertController(title: "Passcodes Do Not Match.", message: "", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
                 NSLog("The \"OK\" alert occured.")
