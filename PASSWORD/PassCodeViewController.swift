@@ -49,7 +49,7 @@ class PassCodeViewController: UIViewController {
         passCodeText.text = passCodeDefault
         
         longGesture = UILongPressGestureRecognizer(target: self, action: #selector(PassCodeViewController.longPress(_:)))
-        longGesture.minimumPressDuration = 1
+        longGesture.minimumPressDuration = 0.1
         AlarmView.addGestureRecognizer(longGesture)
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(UIMenuController.update), userInfo: nil, repeats: true)
@@ -133,7 +133,8 @@ class PassCodeViewController: UIViewController {
         if (passCodeText.text == retrievedPassCode) {
             passCodeText.text  = ""
             if(StandardView.backgroundColor == .red){
-                checkButton.sendActions(for: .touchUpInside)            } else {
+                checkButton.sendActions(for: .touchUpInside)
+            } else {
                 AlarmView.isHidden = false
             }
         } else {
@@ -173,7 +174,8 @@ class PassCodeViewController: UIViewController {
             print("Save was successful: \(saveSuccessful)")
             self.view.endEditing(true)
             passCodeLabel.text = "Password saved."
-        } else {
+            checkButton.sendActions(for: .touchUpInside)        }
+        else {
             let alert = UIAlertController(title: "Passcodes Do Not Match.", message: "", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
                 NSLog("The \"OK\" alert occured.")

@@ -33,7 +33,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.77647066119999997" green="0.86274516580000005" blue="0.92941182850000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tOM-J5-NUa" firstAttribute="centerX" secondItem="1We-6I-ZWn" secondAttribute="centerX" id="CpL-7o-CKb"/>
                             <constraint firstItem="tOM-J5-NUa" firstAttribute="centerY" secondItem="1We-6I-ZWn" secondAttribute="centerY" id="ZfT-PE-nYc"/>
@@ -73,7 +73,7 @@
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="swq-uS-ujY">
                                         <rect key="frame" x="0.0" y="110.99999999999999" width="288" height="55.333333333333329"/>
-                                        <color key="backgroundColor" red="0.77647066119999997" green="0.86274516580000005" blue="0.92941182850000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="0.77647066119999997" green="0.86274516580000005" blue="0.92941182850000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
@@ -246,7 +246,7 @@
                                     <action selector="deletePassCode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mdj-D0-oDj"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYy-zc-N2x" userLabel="AlarmView">
+                            <view hidden="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYy-zc-N2x" userLabel="AlarmView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grs-pH-L3B">
@@ -266,13 +266,17 @@
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.58235299587249756" green="0.89705884456634521" blue="0.59803926944732666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstItem="grs-pH-L3B" firstAttribute="centerY" secondItem="gYy-zc-N2x" secondAttribute="centerY" id="L4z-fZ-Pki"/>
                                     <constraint firstItem="grs-pH-L3B" firstAttribute="centerX" secondItem="gYy-zc-N2x" secondAttribute="centerX" id="nMb-Iu-iMT"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.77647066119999997" green="0.86274516580000005" blue="0.92941182850000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="GGd-S4-Gyz" firstAttribute="top" secondItem="edt-ze-BT0" secondAttribute="bottom" constant="24" id="2yS-JI-AlB"/>
                             <constraint firstItem="ivX-wT-cSA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5iQ-qn-amH"/>
