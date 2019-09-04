@@ -13,7 +13,6 @@ class PassCodeViewController: UIViewController {
     
     //Variables
     
-    
     @IBOutlet var StandardView: UIView!
     @IBOutlet weak var AlarmView: UIView!
     @IBOutlet weak var passCodeText: UITextField!
@@ -21,6 +20,7 @@ class PassCodeViewController: UIViewController {
     @IBOutlet weak var passCodeLabel: UILabel!
     @IBOutlet weak var enter: UIButton!
     @IBOutlet weak var checkButton: UIButton!
+    @IBOutlet weak var countDownLabel: UILabel!
     
     
     let currentPassCode: String? = KeychainWrapper.standard.string(forKey: "userPasscode")
@@ -29,9 +29,8 @@ class PassCodeViewController: UIViewController {
     
     var longGesture = UILongPressGestureRecognizer()
     
-    //let hvc = HomeViewController()
-    
-    
+    var countdown = 8
+    var timer = Timer()
     
     //View
     
@@ -53,7 +52,8 @@ class PassCodeViewController: UIViewController {
         longGesture.minimumPressDuration = 1
         AlarmView.addGestureRecognizer(longGesture)
         
-        }
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(UIMenuController.update), userInfo: nil, repeats: true)        
+    }
     
     
 
@@ -196,9 +196,16 @@ class PassCodeViewController: UIViewController {
             StandardView.backgroundColor = .red
             passCodeLabel.backgroundColor = .red
             passCodeText.backgroundColor = .red
-            //StandardView.tag = 101
+            update()
         }
     }
     
+    @objc func update() {
+        countdown = countdown - 1
+        countDownLabel.text = String(countdown)
+        if (countdown == 0){
+            countDownLabel.text = "ALARM"
+        }
+    }
 }
 
