@@ -32,10 +32,26 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="9YT-pi-74i"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eh3-Cd-jOq">
+                                <rect key="frame" x="284" y="44" width="75" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="2ei-kz-U2V"/>
+                                    <constraint firstAttribute="width" constant="75" id="fFZ-Gq-35Z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Contacts">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="EWT-ft-gTU" kind="show" id="0Er-lK-Vq3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="eh3-Cd-jOq" firstAttribute="top" secondItem="gGW-Wh-Pgf" secondAttribute="top" id="CpH-Ag-HNy"/>
                             <constraint firstItem="tOM-J5-NUa" firstAttribute="centerX" secondItem="1We-6I-ZWn" secondAttribute="centerX" id="CpL-7o-CKb"/>
+                            <constraint firstItem="gGW-Wh-Pgf" firstAttribute="trailing" secondItem="eh3-Cd-jOq" secondAttribute="trailing" constant="16" id="TfI-SQ-aCW"/>
                             <constraint firstItem="tOM-J5-NUa" firstAttribute="centerY" secondItem="1We-6I-ZWn" secondAttribute="centerY" id="ZfT-PE-nYc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gGW-Wh-Pgf"/>
@@ -306,6 +322,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="128.80000000000001" y="99.753694581280797"/>
+        </scene>
+        <!--Contact View Controller-->
+        <scene sceneID="fjy-pC-MQh">
+            <objects>
+                <viewController id="EWT-ft-gTU" customClass="ContactViewController" customModule="PASSWORD" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DW1-qV-iRt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XnD-y0-ZEc">
+                                <rect key="frame" x="137.66666666666666" y="391" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="G0n-H8-qrn"/>
+                                    <constraint firstAttribute="height" constant="30" id="fGT-8D-nBj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Contacts"/>
+                                <connections>
+                                    <action selector="contactButtonClicked:" destination="EWT-ft-gTU" eventType="touchUpInside" id="M2h-uF-Vfl"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CrK-f1-NWp">
+                                <rect key="frame" x="137.66666666666666" y="297" width="100" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="X9A-s6-c9I"/>
+                                    <constraint firstAttribute="width" constant="100" id="rod-os-ePr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CrK-f1-NWp" firstAttribute="centerX" secondItem="DW1-qV-iRt" secondAttribute="centerX" id="JUU-bH-CQj"/>
+                            <constraint firstItem="XnD-y0-ZEc" firstAttribute="centerX" secondItem="DW1-qV-iRt" secondAttribute="centerX" id="Nab-7i-4hC"/>
+                            <constraint firstItem="XnD-y0-ZEc" firstAttribute="top" secondItem="CrK-f1-NWp" secondAttribute="bottom" constant="74" id="QWN-ZV-xla"/>
+                            <constraint firstItem="XnD-y0-ZEc" firstAttribute="centerY" secondItem="DW1-qV-iRt" secondAttribute="centerY" id="mwp-RO-8Xd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HlJ-yN-iAu"/>
+                    </view>
+                    <connections>
+                        <outlet property="contactButton" destination="XnD-y0-ZEc" id="O2B-VU-W4F"/>
+                        <outlet property="contactLabel" destination="CrK-f1-NWp" id="9c4-Ey-J0c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T37-cE-Mg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="853.60000000000002" y="99.753694581280797"/>
         </scene>
     </scenes>
 </document>

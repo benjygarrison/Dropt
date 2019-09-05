@@ -13,6 +13,7 @@
 		AF66DFD8231B4E5D00B6602E /* PASSWORD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF66DFD6231B4E5D00B6602E /* PASSWORD.xcdatamodeld */; };
 		AF66DFDA231B4E5F00B6602E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF66DFD9231B4E5F00B6602E /* Assets.xcassets */; };
 		AF66DFDD231B4E5F00B6602E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF66DFDB231B4E5F00B6602E /* LaunchScreen.storyboard */; };
+		AFCABBBA2321B12700F4391A /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCABBB92321B12700F4391A /* ContactViewController.swift */; };
 		AFDDDAF4231C99E3008CD933 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDDDAF3231C99E3008CD933 /* HomeViewController.swift */; };
 		DED9B04F3C4E997A3800B7ED /* libPods-PASSWORD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197E018D1BF21315CB34040 /* libPods-PASSWORD.a */; };
 /* End PBXBuildFile section */
@@ -27,6 +28,7 @@
 		AF66DFD9231B4E5F00B6602E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF66DFDC231B4E5F00B6602E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF66DFDE231B4E5F00B6602E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFCABBB92321B12700F4391A /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		AFDDDAF3231C99E3008CD933 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B551935C1AA54AE3DC178963 /* Pods-PASSWORD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PASSWORD.debug.xcconfig"; path = "Target Support Files/Pods-PASSWORD/Pods-PASSWORD.debug.xcconfig"; sourceTree = "<group>"; };
 		C247E402F17B60FF6871A201 /* Pods-PASSWORD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PASSWORD.release.xcconfig"; path = "Target Support Files/Pods-PASSWORD/Pods-PASSWORD.release.xcconfig"; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				AF66DFCF231B4E5D00B6602E /* AppDelegate.swift */,
 				AF66DFD1231B4E5D00B6602E /* PassCodeViewController.swift */,
 				AF66DFD3231B4E5D00B6602E /* Main.storyboard */,
+				AFCABBB92321B12700F4391A /* ContactViewController.swift */,
 				AFDDDAF3231C99E3008CD933 /* HomeViewController.swift */,
 				AF66DFD9231B4E5F00B6602E /* Assets.xcassets */,
 				AF66DFDB231B4E5F00B6602E /* LaunchScreen.storyboard */,
@@ -195,6 +198,7 @@
 				AF66DFD8231B4E5D00B6602E /* PASSWORD.xcdatamodeld in Sources */,
 				AF66DFD0231B4E5D00B6602E /* AppDelegate.swift in Sources */,
 				AFDDDAF4231C99E3008CD933 /* HomeViewController.swift in Sources */,
+				AFCABBBA2321B12700F4391A /* ContactViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
