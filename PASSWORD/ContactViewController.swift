@@ -28,14 +28,29 @@ class ContactViewController: UIViewController,CNContactPickerDelegate {
         self.present(contacVC, animated: true, completion: nil)
     }
     
-    func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
-        print(contact.phoneNumbers)
-        let numbers = contact.phoneNumbers.first
-        print((numbers?.value)?.stringValue ?? "")
+    
+    func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
         
-        contactLabel.text = " \((numbers?.value)?.stringValue ?? "")"
+        for contact in contacts {
+            print(contact.phoneNumbers)
+        }
         
+        //print(CNPhoneNumber.self)
+        //let numbers = contacts.phoneNumbers.first
+        //print((numbers?.value)?.stringValue ?? "")
+        
+        //contactLabel.text = " \((numbers?.value)?.stringValue ?? "")"
     }
+    
+    //func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: CNContact) {
+
+      //  print(contacts.phoneNumbers)
+        //let numbers = contacts.phoneNumbers.first
+        //print((numbers?.value)?.stringValue ?? "")
+        
+        //contactLabel.text = " \((numbers?.value)?.stringValue ?? "")"
+    //}
+    
     
     func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
         self.dismiss(animated: true, completion: nil)
