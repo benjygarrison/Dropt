@@ -11,8 +11,7 @@ import ContactsUI
 
 class ContactViewController: UIViewController,CNContactPickerDelegate {
 
-    @IBOutlet weak var contactButton: UIButton!
-    @IBOutlet weak var contactLabel: UILabel!
+
     
     
     override func viewDidLoad() {
@@ -22,7 +21,7 @@ class ContactViewController: UIViewController,CNContactPickerDelegate {
     }
     
     
-    @IBAction func contactButtonClicked(_ sender: Any) {
+    func contactButtonClicked(_ sender: Any) {
         let contacVC = CNContactPickerViewController()
         contacVC.delegate = self
         self.present(contacVC, animated: true, completion: nil)
@@ -58,9 +57,7 @@ class ContactViewController: UIViewController,CNContactPickerDelegate {
             let firstName = contact.givenName
             let lastName = contact.familyName
 
-            //contactLabel.text = " \((number?.value)?.stringValue ?? "")"
             numberArray.append((number?.value)?.stringValue ?? "")
-            //print(numberArray)
             print(firstName +  " " + lastName + " \((number?.value)?.stringValue ?? "")")
         }
 
