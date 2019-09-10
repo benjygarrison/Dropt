@@ -2,10 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:PASSWORD/UserContact+CoreDataClass.swift">
+      location = "group:/Users/benandhana/Desktop/PASSWORD/PASSWORD/UserContact+CoreDataClass.swift">
    </FileRef>
    <FileRef
-      location = "group:PASSWORD/UserContact+CoreDataProperties.swift">
+      location = "group:/Users/benandhana/Desktop/PASSWORD/PASSWORD/UserContact+CoreDataProperties.swift">
    </FileRef>
    <FileRef
       location = "group:PASSWORD.xcodeproj">

@@ -16,11 +16,20 @@ class ContactViewController: UIViewController, CNContactPickerDelegate, UITableV
     @IBOutlet weak var contactTableView: UITableView!
     
     
-    var userContacts = [String]()
+    var userContacts = [UserContact]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let fetchRequest: NSFetchRequest<UserContact> = UserContact.fetchRequest()
+        
+        do {
+            let userContacts = try PersistenceService.context.fetch(fetchRequest)
+            self.userContacts = userContacts
+            self.contactTableView.reloadData()
+        } catch {
+            print("tried, but failed")
+        }
         
     }
     
@@ -53,18 +62,29 @@ class ContactViewController: UIViewController, CNContactPickerDelegate, UITableV
             print("Not handled")
         }
     
-        var numberArray: [String] = []
+        //var numberArray: [String] = []
+        
+        
         
         for contact in contacts {
-
+            
+            let userContact = UserContact(context: PersistenceService.context)
             let number = contact.phoneNumbers.first
             let firstName = contact.givenName
             let lastName = contact.familyName
-
-            numberArray.append((number?.value)?.stringValue ?? "")
+            
+            userContact.phoneNumber = (number?.value)?.stringValue ?? ""
+            userContact.firstName = firstName
+            userContact.lastName = lastName
+            
+            PersistenceService.saveContext()
+            self.userContacts.append(userContact)
+            self.contactTableView.reloadData()
+            
+            //numberArray.append((number?.value)?.stringValue ?? "")
             print(firstName +  " " + lastName + " \((number?.value)?.stringValue ?? "")")
         }
-
+        
     }
     
     
@@ -82,8 +102,8 @@ class ContactViewController: UIViewController, CNContactPickerDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        cell.textLabel?.text = ""
-        cell.detailTextLabel?.text = ""
+        cell.textLabel?.text = userContacts[indexPath.row].firstName
+        cell.detailTextLabel?.text = userContacts[indexPath.row].phoneNumber
         return cell
     }
 }

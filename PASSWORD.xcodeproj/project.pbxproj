@@ -15,6 +15,8 @@
 		AF66DFDD231B4E5F00B6602E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF66DFDB231B4E5F00B6602E /* LaunchScreen.storyboard */; };
 		AFCABBBA2321B12700F4391A /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCABBB92321B12700F4391A /* ContactViewController.swift */; };
 		AFCABBDD2327529200F4391A /* PersistanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCABBDC2327529200F4391A /* PersistanceService.swift */; };
+		AFCABBEC2327663300F4391A /* UserContact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCABBEA2327663300F4391A /* UserContact+CoreDataProperties.swift */; };
+		AFCABBED2327663300F4391A /* UserContact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCABBEB2327663300F4391A /* UserContact+CoreDataClass.swift */; };
 		AFDDDAF4231C99E3008CD933 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDDDAF3231C99E3008CD933 /* HomeViewController.swift */; };
 		DED9B04F3C4E997A3800B7ED /* libPods-PASSWORD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197E018D1BF21315CB34040 /* libPods-PASSWORD.a */; };
 /* End PBXBuildFile section */
@@ -31,6 +33,8 @@
 		AF66DFDE231B4E5F00B6602E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFCABBB92321B12700F4391A /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		AFCABBDC2327529200F4391A /* PersistanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceService.swift; sourceTree = "<group>"; };
+		AFCABBEA2327663300F4391A /* UserContact+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserContact+CoreDataProperties.swift"; path = "/Users/benandhana/Desktop/PASSWORD/PASSWORD/UserContact+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		AFCABBEB2327663300F4391A /* UserContact+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserContact+CoreDataClass.swift"; path = "/Users/benandhana/Desktop/PASSWORD/PASSWORD/UserContact+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		AFDDDAF3231C99E3008CD933 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B551935C1AA54AE3DC178963 /* Pods-PASSWORD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PASSWORD.debug.xcconfig"; path = "Target Support Files/Pods-PASSWORD/Pods-PASSWORD.debug.xcconfig"; sourceTree = "<group>"; };
 		C247E402F17B60FF6871A201 /* Pods-PASSWORD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PASSWORD.release.xcconfig"; path = "Target Support Files/Pods-PASSWORD/Pods-PASSWORD.release.xcconfig"; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 			isa = PBXGroup;
 			children = (
 				AF66DFCF231B4E5D00B6602E /* AppDelegate.swift */,
+				AFCABBEB2327663300F4391A /* UserContact+CoreDataClass.swift */,
+				AFCABBEA2327663300F4391A /* UserContact+CoreDataProperties.swift */,
 				AFCABBDC2327529200F4391A /* PersistanceService.swift */,
 				AF66DFD3231B4E5D00B6602E /* Main.storyboard */,
 				AF66DFD1231B4E5D00B6602E /* PassCodeViewController.swift */,
@@ -198,11 +204,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF66DFD2231B4E5D00B6602E /* PassCodeViewController.swift in Sources */,
+				AFCABBED2327663300F4391A /* UserContact+CoreDataClass.swift in Sources */,
 				AFCABBDD2327529200F4391A /* PersistanceService.swift in Sources */,
 				AF66DFD8231B4E5D00B6602E /* PASSWORD.xcdatamodeld in Sources */,
 				AF66DFD0231B4E5D00B6602E /* AppDelegate.swift in Sources */,
 				AFDDDAF4231C99E3008CD933 /* HomeViewController.swift in Sources */,
 				AFCABBBA2321B12700F4391A /* ContactViewController.swift in Sources */,
+				AFCABBEC2327663300F4391A /* UserContact+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
