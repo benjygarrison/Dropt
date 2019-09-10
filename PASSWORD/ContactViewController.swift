@@ -18,6 +18,9 @@ class ContactViewController: UIViewController, CNContactPickerDelegate, UITableV
     
     var userContacts = [UserContact]()
     
+    //var isChecked = false
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +38,10 @@ class ContactViewController: UIViewController, CNContactPickerDelegate, UITableV
         }
         
     }
+    
+    
+    
+
     
     
     @IBAction func addButtonClicked(_ sender: Any) {
@@ -90,10 +97,13 @@ class ContactViewController: UIViewController, CNContactPickerDelegate, UITableV
         
     }
     
-    
     func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
+    //tableview functions
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -117,4 +127,21 @@ class ContactViewController: UIViewController, CNContactPickerDelegate, UITableV
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
         }
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            let deletedUser = userContacts[indexPath.row]
+            PersistenceService.context.delete(deletedUser)
+            PersistenceService.saveContext()
+            print("deleted")
+            userContacts.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .bottom)
+        }
+    }
 }
+
