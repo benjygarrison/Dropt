@@ -8,20 +8,24 @@
 
 import UIKit
 import ContactsUI
+import CoreData
 
-class ContactViewController: UIViewController,CNContactPickerDelegate {
-
-
+class ContactViewController: UIViewController, CNContactPickerDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    @IBOutlet weak var contactTableView: UITableView!
+    
+    
+    var userContacts = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
     
     
-    func contactButtonClicked(_ sender: Any) {
+    @IBAction func addButtonClicked(_ sender: Any) {
         let contacVC = CNContactPickerViewController()
         contacVC.delegate = self
         self.present(contacVC, animated: true, completion: nil)
@@ -67,5 +71,19 @@ class ContactViewController: UIViewController,CNContactPickerDelegate {
     func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
         self.dismiss(animated: true, completion: nil)
     }
-
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userContacts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        cell.textLabel?.text = ""
+        cell.detailTextLabel?.text = ""
+        return cell
+    }
 }

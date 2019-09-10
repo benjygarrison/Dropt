@@ -339,30 +339,46 @@
                                 <items>
                                     <navigationItem title="Contacts" id="0VC-Q4-nmQ" userLabel="Contacts">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cwM-je-meX"/>
-                                        <rightBarButtonItems>
-                                            <barButtonItem systemItem="add" id="STG-h2-Zi0"/>
-                                            <barButtonItem systemItem="trash" id="vxC-aA-64U"/>
-                                        </rightBarButtonItems>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="STG-h2-Zi0">
+                                            <connections>
+                                                <action selector="addButtonClicked:" destination="EWT-ft-gTU" id="Nb6-pZ-B0D"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oAl-G9-yOv">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QfG-Ur-kwP">
+                                <rect key="frame" x="0.0" y="729" width="375" height="49"/>
+                                <items>
+                                    <barButtonItem width="190" style="plain" systemItem="fixedSpace" id="zvg-pH-ZYB"/>
+                                    <barButtonItem systemItem="trash" id="Squ-Ph-l6G"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="YPZ-zT-4mf" firstAttribute="trailing" secondItem="HlJ-yN-iAu" secondAttribute="trailing" id="0cI-wk-NS1"/>
-                            <constraint firstItem="oAl-G9-yOv" firstAttribute="top" secondItem="YPZ-zT-4mf" secondAttribute="bottom" id="8t2-HP-F6a"/>
-                            <constraint firstItem="oAl-G9-yOv" firstAttribute="trailing" secondItem="HlJ-yN-iAu" secondAttribute="trailing" id="A9o-Mf-RM1"/>
+                            <constraint firstItem="QfG-Ur-kwP" firstAttribute="leading" secondItem="HlJ-yN-iAu" secondAttribute="leading" id="7aP-Ia-l5O"/>
+                            <constraint firstItem="oAl-G9-yOv" firstAttribute="top" secondItem="YPZ-zT-4mf" secondAttribute="bottom" id="Qeh-9V-dAa"/>
+                            <constraint firstItem="oAl-G9-yOv" firstAttribute="leading" secondItem="HlJ-yN-iAu" secondAttribute="leading" id="Xgr-kn-kiP"/>
+                            <constraint firstItem="QfG-Ur-kwP" firstAttribute="top" secondItem="oAl-G9-yOv" secondAttribute="bottom" id="bnl-jd-cvJ"/>
+                            <constraint firstItem="oAl-G9-yOv" firstAttribute="trailing" secondItem="HlJ-yN-iAu" secondAttribute="trailing" id="f9v-fY-xi3"/>
+                            <constraint firstItem="QfG-Ur-kwP" firstAttribute="top" secondItem="oAl-G9-yOv" secondAttribute="bottom" id="h9O-Wj-2cW"/>
                             <constraint firstItem="YPZ-zT-4mf" firstAttribute="leading" secondItem="HlJ-yN-iAu" secondAttribute="leading" id="lv0-0f-I9J"/>
-                            <constraint firstItem="oAl-G9-yOv" firstAttribute="bottom" secondItem="HlJ-yN-iAu" secondAttribute="bottom" id="oli-FH-WVO"/>
-                            <constraint firstItem="oAl-G9-yOv" firstAttribute="leading" secondItem="HlJ-yN-iAu" secondAttribute="leading" id="osR-XL-WCj"/>
+                            <constraint firstItem="QfG-Ur-kwP" firstAttribute="trailing" secondItem="HlJ-yN-iAu" secondAttribute="trailing" id="oNT-zW-Lmc"/>
+                            <constraint firstItem="QfG-Ur-kwP" firstAttribute="bottom" secondItem="HlJ-yN-iAu" secondAttribute="bottom" id="sg4-JW-vJw"/>
                             <constraint firstItem="YPZ-zT-4mf" firstAttribute="top" secondItem="HlJ-yN-iAu" secondAttribute="top" id="zkj-Hp-bjX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HlJ-yN-iAu"/>
                     </view>
+                    <connections>
+                        <outlet property="addButton" destination="STG-h2-Zi0" id="fdK-Zn-gcz"/>
+                        <outlet property="contactTableView" destination="oAl-G9-yOv" id="9ID-rg-NCR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T37-cE-Mg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
