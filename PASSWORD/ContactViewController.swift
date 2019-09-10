@@ -10,7 +10,7 @@ import UIKit
 import ContactsUI
 import CoreData
 
-class ContactViewController: UIViewController, CNContactPickerDelegate, UITableViewDataSource {
+class ContactViewController: UIViewController, CNContactPickerDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var contactTableView: UITableView!
@@ -20,6 +20,9 @@ class ContactViewController: UIViewController, CNContactPickerDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        contactTableView.delegate = self
+        contactTableView.dataSource = self
 
         let fetchRequest: NSFetchRequest<UserContact> = UserContact.fetchRequest()
         
