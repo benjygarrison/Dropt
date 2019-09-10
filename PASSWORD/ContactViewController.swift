@@ -31,25 +31,40 @@ class ContactViewController: UIViewController,CNContactPickerDelegate {
     
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
         
-        for contact in contacts {
-            print(contact.phoneNumbers)
+        let store = CNContactStore()
+        
+        switch CNContactStore.authorizationStatus(for: .contacts){
+        case .authorized:
+        print("authorized")
+        case .notDetermined:
+            store.requestAccess(for: .contacts){succeeded, err in
+                guard err == nil && succeeded else{
+                    return
+                }
+            }
+        case .denied:
+        print("denied")
+        case .restricted:
+        print("restricted")
+        default:
+            print("Not handled")
         }
-        
-        //print(CNPhoneNumber.self)
-        //let numbers = contacts.phoneNumbers.first
-        //print((numbers?.value)?.stringValue ?? "")
-        
-        //contactLabel.text = " \((numbers?.value)?.stringValue ?? "")"
-    }
     
-    //func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: CNContact) {
-
-      //  print(contacts.phoneNumbers)
-        //let numbers = contacts.phoneNumbers.first
-        //print((numbers?.value)?.stringValue ?? "")
+        var numberArray: [String] = []
         
-        //contactLabel.text = " \((numbers?.value)?.stringValue ?? "")"
-    //}
+        for contact in contacts {
+
+            let number = contact.phoneNumbers.first
+            let firstName = contact.givenName
+            let lastName = contact.familyName
+
+            //contactLabel.text = " \((number?.value)?.stringValue ?? "")"
+            numberArray.append((number?.value)?.stringValue ?? "")
+            //print(numberArray)
+            print(firstName +  " " + lastName + " \((number?.value)?.stringValue ?? "")")
+        }
+
+    }
     
     
     func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
