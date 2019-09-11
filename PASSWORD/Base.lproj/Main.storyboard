@@ -205,7 +205,7 @@
                                         <subviews>
                                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFv-Gy-oHd">
                                                 <rect key="frame" x="0.0" y="0.0" width="96" height="55.333333333333336"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                 <state key="normal" title="clear">
                                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -225,7 +225,7 @@
                                             </button>
                                             <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="umv-zC-wK0">
                                                 <rect key="frame" x="192" y="0.0" width="96" height="55.333333333333336"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                 <state key="normal" title="enter">
                                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -244,7 +244,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edt-ze-BT0">
                                 <rect key="frame" x="147" y="630" width="81" height="47"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal" title="check">
+                                <state key="normal">
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -265,9 +265,9 @@
                             <view hidden="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYy-zc-N2x" userLabel="AlarmView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grs-pH-L3B">
+                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Grip and hold your phone to activate." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grs-pH-L3B">
                                         <rect key="frame" x="67.666666666666686" y="276" width="240" height="260"/>
-                                        <color key="backgroundColor" red="0.5823529959" green="0.89705884459999996" blue="0.59803926939999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" notEnabled="YES"/>
                                         </accessibility>
@@ -275,13 +275,12 @@
                                             <constraint firstAttribute="width" constant="240" id="aSS-Xq-D0x"/>
                                             <constraint firstAttribute="height" constant="260" id="xAI-2B-3SL"/>
                                         </constraints>
-                                        <string key="text">Grip phone with your thumb or fingers anywhere on the screen. If you release your grip, you will have 8 seconds to enter your passcode.</string>
                                         <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.58235299587249756" green="0.89705884456634521" blue="0.59803926944732666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                     <bool key="isElement" value="YES"/>
@@ -338,7 +337,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Contacts" id="0VC-Q4-nmQ" userLabel="Contacts">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cwM-je-meX"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cwM-je-meX">
+                                            <connections>
+                                                <segue destination="tcw-CY-m6E" kind="show" id="0jV-RX-dh0"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="STG-h2-Zi0">
                                             <connections>
                                                 <action selector="addButtonClicked:" destination="EWT-ft-gTU" id="Nb6-pZ-B0D"/>
@@ -382,4 +385,7 @@
             <point key="canvasLocation" x="853.60000000000002" y="99.753694581280797"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0jV-RX-dh0"/>
+    </inferredMetricsTieBreakers>
 </document>

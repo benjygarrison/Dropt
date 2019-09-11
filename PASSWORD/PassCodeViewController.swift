@@ -8,8 +8,11 @@
 
 import UIKit
 import SwiftKeychainWrapper
+import CoreData
+import MessageUI
 
-class PassCodeViewController: UIViewController {
+class PassCodeViewController: UIViewController, MFMessageComposeViewControllerDelegate {
+    
     
     //Variables
     
@@ -128,6 +131,35 @@ class PassCodeViewController: UIViewController {
     
     //Functions (TODO: move to Model files?)
     
+    func sendMessage(_ sender: Any) {
+        let messageVC = MFMessageComposeViewController()
+        
+        messageVC.body = "Alarm message would have gone here";
+        messageVC.recipients = ["contact numbers would have gone here"]
+        messageVC.messageComposeDelegate = self
+        
+        self.present(messageVC, animated: true, completion: nil)
+    }
+
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        switch (result) {
+        case .cancelled:
+            print("Message was cancelled")
+            dismiss(animated: true, completion: nil)
+        case .failed:
+            print("Message failed")
+            dismiss(animated: true, completion: nil)
+        case .sent:
+            print("Message was sent")
+            dismiss(animated: true, completion: nil)
+        default:
+            break
+        }
+
+    }
+    
+    
     func passCodeExists() {
         let retrievedPassCode: String? = KeychainWrapper.standard.string(forKey: "userPasscode")
         if (passCodeText.text == retrievedPassCode) {
@@ -214,6 +246,7 @@ class PassCodeViewController: UIViewController {
             if (countdown == 0){
                 countDownLabel.text = "ALARM"
                 timer.invalidate()
+                sendMessage((Any).self)
             }
         }
     }
