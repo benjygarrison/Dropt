@@ -15,7 +15,7 @@ Project status at time of abandoment:
 - SMS function to send alarm with geolocation data. -> unfinished (calls Apple's message view controller function, but no core data is added to function)
 - Custom SMS message field -> never created
 - Function to adjust timer length -> never created
- - UI -> mostly complete (passcode screen lacks back button; functions currently linked to "check" button, which is to be deleted; internal "delete" button needs to be deleted; background colors need to be changed; UI elements need to be adjusted for asthetics)
+ - UI -> mostly complete (passcode screen lacks back button; functions currently linked to "check" button, which is to be deleted; internal "delete" button needs to be deleted; background colors need to be changed; UI elements need to be adjusted for aesthetics/user-friendliness)
 
 Thanks for checking out my (incomplete) app! 
 
