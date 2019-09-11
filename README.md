@@ -10,12 +10,13 @@ The app would have ultimately sent a text message with an alert and geolocation 
 
 Project status at time of abandoment:
 
-- Creation, verification and storage of passcode via custom UI (passcode saved to keychain). -> working
-- Importing and deletion of user contacts, which are saved to core data. -> working
-- SMS function to send alarm with geolocation data. -> unfinished (calls Apple's message view controller function, but no core data is added to function)
+- Creation, verification and storage of passcode via custom UI (passcode saved to keychain) -> working
+- Importing and deletion of user contacts, which are saved to core data -> working
+- SMS function to send alarm with geolocation data -> unfinished (calls Apple's message view controller function, but no core data is added to function)
 - Custom SMS message field -> never created
 - Function to adjust timer length -> never created
  - UI -> mostly complete (passcode screen lacks back button; functions currently linked to "check" button, which is to be deleted; internal "delete" button needs to be deleted; background colors need to be changed; UI elements need to be adjusted for aesthetics/user-friendliness)
+ - Code -> needs to be significantly cleaned up; many functions that should be moved into model classes currently exist in the view controllers 
 
 Thanks for checking out my (incomplete) app! 
 
